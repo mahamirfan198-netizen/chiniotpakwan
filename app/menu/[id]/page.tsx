@@ -1,3 +1,5 @@
+import Script from "next/script";
+import { getProductSchema, getBreadcrumbSchema } from "@/lib/structuredData";
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
@@ -89,7 +91,36 @@ function ProductDetailContent() {
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center">
               <span className="text-xl">🍛</span>
-            </div>
+            </div>      {/* Structured Data */}
+      {product && (
+        <>
+          <Script
+            id="product-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(getProductSchema({
+                name: product.name,
+                description: product.description,
+                image: product.image,
+                priceFrom: product.priceFrom,
+                priceTo: product.priceTo,
+                slug: product.slug || product.id,
+              })),
+            }}
+          />
+          <Script
+            id="breadcrumb-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(getBreadcrumbSchema([
+                { name: "Home", url: "/" },
+                { name: "Menu", url: "/menu" },
+                { name: product.name, url: "/menu/" + (product.slug || product.id) },
+              ])),
+            }}
+          />
+        </>
+      )}
             <span className="font-display text-lg font-bold text-ivory hidden sm:block">Chiniot Pakwan</span>
           </Link>
           <div className="flex items-center gap-4">

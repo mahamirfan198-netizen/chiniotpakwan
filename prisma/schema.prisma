@@ -27,22 +27,21 @@ model Category {
 }
 
 model Product {
-  id           String   @id @default(cuid())
-  name         String
-  slug         String   @unique
-  description  String   @db.Text
-  priceFrom    Int
-  priceTo      Int
-  variantNote  String?
-  image        String
-  originalUrl  String?
-  popular      Boolean  @default(false)
-  available    Boolean  @default(true)
-  categoryId   String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  priceFrom   Int
+  priceTo     Int
+  variantNote String?
+  image       String
+  originalUrl String?
+  popular     Boolean  @default(false)
+  available   Boolean  @default(true)
+  categoryId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@index([categoryId])
   @@index([available])
@@ -53,13 +52,13 @@ model ContactMessage {
   name      String
   phone     String
   email     String?
-  message   String   @db.Text
+  message   String
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
 
 model CateringEnquiry {
-  id            String   @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String
   phone         String
   email         String?
@@ -68,36 +67,35 @@ model CateringEnquiry {
   guestCount    Int?
   location      String?
   preferredDish String?
-  notes         String?  @db.Text
-  status        String   @default("NEW")
-  read          Boolean  @default(false)
-  createdAt     DateTime @default(now())
+  notes         String?
+  status        String    @default("NEW")
+  read          Boolean   @default(false)
+  createdAt     DateTime  @default(now())
 }
 
 model SiteSetting {
   id    String @id @default(cuid())
   key   String @unique
-  value String @db.Text
+  value String
 }
 
 model Order {
-  id            String   @id @default(cuid())
-  orderNumber   String   @unique
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
   customerName  String
   customerPhone String
   customerEmail String?
-  address       String   @db.Text
+  address       String
   city          String?
   totalAmount   Int
-  paymentMethod String   @default("COD")
+  paymentMethod String      @default("COD")
   transactionId String?
-  paymentStatus String   @default("PENDING")
-  status        String   @default("NEW")
-  notes         String?  @db.Text
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  items OrderItem[]
+  paymentStatus String      @default("PENDING")
+  status        String      @default("NEW")
+  notes         String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  items         OrderItem[]
 
   @@index([customerPhone])
   @@index([createdAt])
@@ -112,8 +110,13 @@ model OrderItem {
   quantity  Int
   image     String?
   createdAt DateTime @default(now())
-
-  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
 
   @@index([orderId])
+}
+
+model playing_with_neon {
+  id    Int    @id @default(autoincrement())
+  name  String
+  value Float? @db.Real
 }

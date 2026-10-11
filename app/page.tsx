@@ -1,8 +1,17 @@
+import { getLocalBusinessSchema } from "@/lib/structuredData";
+import Script from "next/script";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-ivory">
+        <div className="min-h-screen bg-ivory">      {/* Structured Data for Local Business */}
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getLocalBusinessSchema()),
+        }}
+      />
       {/* ============ PREMIUM NAVIGATION ============ */}
       <nav className="absolute top-0 left-0 right-0 z-50 py-6">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -84,9 +93,9 @@ export default function Home() {
           </p>
 
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] mb-8 drop-shadow-2xl">
-            AUTHENTIC
+                       AUTHENTIC <span className="text-gold-bright" style={{ textShadow: "0 4px 20px rgba(232, 200, 118, 0.4)" }}>PAKISTANI</span>
             <br />
-            <span className="text-gold-bright" style={{ textShadow: "0 4px 20px rgba(232, 200, 118, 0.4)" }}>FLAVOURS</span>
+            <span className="text-2xl md:text-4xl font-normal">Daig & Catering in Lahore</span>
           </h1>
 
           <div className="flex items-center justify-center gap-3 mb-8">

@@ -48,5 +48,6 @@ export const WHATSAPP_NUMBER = "923009219945";
 export const PHONE_NUMBER = "03009219945";
 export const EMAIL = "support@chiniotpakwan.pk";
 export const JAZZCASH_NUMBER = "03008008672";
-export const EASYPAISA_NUMBER = "03008008672";
+export const EASYPAISA_NUMBER = "03491325702";
+export const MEEZAN_ACCOUNT = "00300111388927";
 export const ACCOUNT_TITLE = "MUHAMMAD MUBASHIR ABU BAKAR";

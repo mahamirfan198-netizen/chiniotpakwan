@@ -1,7 +1,7 @@
-import Script from "next/script";
-import { getProductSchema, getBreadcrumbSchema } from "@/lib/structuredData";
 "use client";
 
+import Script from "next/script";
+import { getProductSchema, getBreadcrumbSchema } from "@/lib/structuredData";
 import { useEffect, useState, Suspense } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";

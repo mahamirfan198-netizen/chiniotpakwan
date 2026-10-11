@@ -52,7 +52,7 @@ export default function CateringPage() {
       (form.preferredDish ? "🍛 Dishes: " + form.preferredDish + "\n" : "") +
       (form.notes ? "\n📝 " + form.notes : "")
     );
-    window.open("https://wa.me/923009219945?text=" + msg, "_blank");
+    window.open("https://wa.me/923008008672?text=" + msg, "_blank");
   }
 
   if (success) {

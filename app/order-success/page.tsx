@@ -8,7 +8,7 @@ function SuccessContent() {
   const params = useSearchParams();
   const orderNumber = params.get("order");
   const waMsg = params.get("wa");
-  const whatsappUrl = waMsg ? "https://wa.me/923009219945?text=" + waMsg : "https://wa.me/923009219945";
+  const whatsappUrl = waMsg ? "https://wa.me/923008008672?text=" + waMsg : "https://wa.me/923008008672";
 
   return (
     <div className="min-h-screen bg-ivory flex items-center justify-center p-6">

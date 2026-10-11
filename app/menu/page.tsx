@@ -160,7 +160,7 @@ export default function MenuPage() {
               📞 Call Us
             </a>
             <a
-              href="https://wa.me/923009219945"
+              href="https://wa.me/923008008672"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-xl bg-white text-emerald-deep font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center gap-2 justify-center"

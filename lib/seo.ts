@@ -6,9 +6,9 @@ export const SITE_DESCRIPTION =
   "Premium Pakistani catering and daig service in Lahore, Faisalabad, Karachi, and Islamabad. Order authentic mutton kunna, chicken korma, biryani, and wedding catering online.";
 
 export const CONTACT = {
-  phone: "03009219945",
-  phoneDisplay: "0300 9219945",
-  whatsapp: "923009219945",
+  phone: "03008008672",
+  phoneDisplay: "0300 8008672",
+  whatsapp: "923008008672",
   email: "support@chiniotpakwan.pk",
 };
 

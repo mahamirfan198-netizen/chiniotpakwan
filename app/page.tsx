@@ -345,14 +345,14 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:03009219945"
+              href="tel:03008008672"
               className="px-8 py-4 rounded-full font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center justify-center gap-2"
               style={{ background: "#0B2620", color: "#FAF6EE" }}
             >
               📞 Call Now
             </a>
             <a
-              href="https://wa.me/923009219945"
+              href="https://wa.me/923008008672"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-full bg-white font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center justify-center gap-2"
@@ -429,10 +429,10 @@ export default function Home() {
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
-                    href="tel:03009219945"
+                    href="tel:03008008672"
                     className="text-white/80 hover:text-gold-bright transition flex items-center gap-2"
                   >
-                    📞 0300 9219945
+                    📞 0300 8008672
                   </a>
                 </li>
                 <li>

@@ -81,7 +81,7 @@ function ProductDetailContent() {
       "Quantity: " + quantity + "\n" +
       "Total: Rs. " + (selectedPrice * quantity).toLocaleString()
     );
-    window.open("https://wa.me/923009219945?text=" + msg, "_blank");
+    window.open("https://wa.me/923008008672?text=" + msg, "_blank");
   }
 
   return (

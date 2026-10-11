@@ -269,8 +269,8 @@ export const CATEGORIES = [
   { id: "Wedding", name: "Wedding", icon: "💍" },
 ];
 
-export const WHATSAPP_NUMBER = "923009219945";
-export const PHONE_NUMBER = "03009219945";
+export const WHATSAPP_NUMBER = "923008008672";
+export const PHONE_NUMBER = "03008008672";
 export const EMAIL = "support@chiniotpakwan.pk";
 
 export function formatPrice(amount: number): string {

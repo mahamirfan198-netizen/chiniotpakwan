@@ -120,7 +120,7 @@ export default function LocationsPage() {
               📞 Call Now
             </a>
             <a
-              href="https://wa.me/923009219945"
+              href="https://wa.me/923008008672"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp justify-center py-4 px-8"

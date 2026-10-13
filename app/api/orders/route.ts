@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
 function generateOrderNumber() {
@@ -29,7 +29,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Calculate total on server — NEVER trust client
     let totalAmount = 0;
     const validatedItems = [];
     for (const item of items) {
@@ -66,6 +65,23 @@ export async function POST(req: NextRequest) {
       },
       include: { items: true },
     });
+
+    // Send email notification to admins (non-blocking)
+    try {
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://chiniotpakwan.pk";
+      await fetch(`${siteUrl}/api/send-notification`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          orderId: order.orderNumber,
+          customerName: order.customerName,
+          total: order.totalAmount,
+          items: order.items.map((i) => `${i.quantity}x ${i.name}`).join(", "),
+        }),
+      });
+    } catch (notifyError) {
+      console.error("Notification failed:", notifyError);
+    }
 
     return NextResponse.json({ order }, { status: 201 });
   } catch (error) {

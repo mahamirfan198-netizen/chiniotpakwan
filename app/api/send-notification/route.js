@@ -1,15 +1,16 @@
-import { Resend } from 'resend';
+﻿import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = 'force-dynamic';
 
 export async function POST(req) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     const { orderId, customerName, total, items } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      // TEMPORARY: Use Resend's test address for now
-      from: 'Chiniot Pakwan <onboarding@resend.dev>', 
+      from: 'Chiniot Pakwan <onboarding@resend.dev>',
       to: ['chiniotpakwann@gmail.com'],
       subject: `New Order #${orderId}`,
       html: `

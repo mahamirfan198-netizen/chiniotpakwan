@@ -1,9 +1,21 @@
 export const dynamic = 'force-dynamic';
 import { getLocalBusinessSchema } from "@/lib/structuredData";
 import Script from "next/script";
+import { prisma } from "@/lib/db";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+
+  const featured = await prisma.product.findMany({
+    where: { available: true },
+    take: 4,
+    orderBy: { createdAt: "desc" },
+    include: { category: { select: { name: true } } },
+  });
+
+  const kunna = await prisma.product.findFirst({
+    where: { name: { contains: "Kunna", mode: "insensitive" } },
+  });
   return (
         <div className="min-h-screen bg-ivory">      {/* Structured Data for Local Business */}
       <Script
@@ -229,7 +241,7 @@ export default function Home() {
           <div className="order-1 lg:order-2 relative">
             <div className="aspect-square rounded-3xl overflow-hidden border-4 border-gold/40 shadow-luxe">
               <img
-                src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800"
+                src={kunna?.image || "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800"}
                 alt="Mutton Kunna"
                 className="w-full h-full object-cover hover:scale-105 transition duration-700"
               />
@@ -262,26 +274,21 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Chicken White Korma", price: "Rs. 7,000", tag: "Bestseller", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=600" },
-              { name: "Chicken Nihari", price: "Rs. 7,800", tag: null, img: "https://images.unsplash.com/photo-1633945274309-2c16c9682a8c?w=600" },
-              { name: "Chicken Lahori Biryani", price: "Rs. 9,250", tag: "Popular", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600" },
-              { name: "Mutton Palak", price: "Rs. 19,750", tag: "Premium", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600" },
-            ].map((item) => (
+            {featured.map((item) => (
               <Link
-                key={item.name}
-                href="/menu"
+                key={item.id}
+                href={"/menu/" + item.id}
                 className="luxe-card overflow-hidden group relative"
               >
                 <div className="relative aspect-square overflow-hidden">
                   <img
-                    src={item.img}
+                    src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                   />
-                  {item.tag && (
+                  {item.popular && (
                     <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-gold text-emerald-deep text-[10px] font-bold tracking-wider uppercase shadow-luxe">
-                      {item.tag}
+                      ? Popular
                     </span>
                   )}
                 </div>
@@ -289,7 +296,7 @@ export default function Home() {
                   <h3 className="font-display text-base font-bold text-emerald-deep mb-1">
                     {item.name}
                   </h3>
-                  <p className="text-gold font-bold text-sm">From {item.price}</p>
+                  <p className="text-gold font-bold text-sm">From Rs. {item.priceFrom.toLocaleString()}</p>
                 </div>
               </Link>
             ))}

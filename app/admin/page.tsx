@@ -12,6 +12,8 @@ type Stats = {
   messages: number;
   unreadEnquiries: number;
   unreadMessages: number;
+  orders: number;
+  newOrders: number;
 };
 
 export default function AdminDashboard() {
@@ -41,6 +43,7 @@ export default function AdminDashboard() {
         <p className="text-charcoal-soft mb-8">Welcome back, Maham</p>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+          <StatCard href="/admin/orders" icon="📋" label="Orders" value={stats.orders} badge={stats.newOrders} />
           <StatCard href="/admin/products" icon="🍛" label="Products" value={stats.products} />
           <StatCard href="/admin/categories" icon="📁" label="Categories" value={stats.categories} />
           <StatCard href="/admin/enquiries" icon="💍" label="Enquiries" value={stats.enquiries} badge={stats.unreadEnquiries} />

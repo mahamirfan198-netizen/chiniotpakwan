@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getLocalBusinessSchema } from "@/lib/structuredData";
 import Script from "next/script";
 import Link from "next/link";

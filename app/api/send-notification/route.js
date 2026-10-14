@@ -1,4 +1,4 @@
-﻿import { Resend } from 'resend';
+import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
@@ -10,7 +10,7 @@ export async function POST(req) {
     const { orderId, customerName, total, items } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: 'Chiniot Pakwan <onboarding@resend.dev>',
+      from: 'Chiniot Pakwan <orders@chiniotpakwan.pk>',
       to: ['chiniotpakwann@gmail.com'],
       subject: `New Order #${orderId}`,
       html: `

@@ -30,7 +30,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold">
-              <span className="text-2xl">🍛</span>
+              <img src="/logo.png" alt="Chiniot Pakwan" className="w-12 h-12 object-contain" />
             </div>
             <div className="hidden sm:block">
               <p className="font-display text-xl font-bold text-white leading-none">

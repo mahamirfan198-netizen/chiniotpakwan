@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
@@ -70,7 +70,7 @@ export default function MenuPage() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center">
-              <span className="text-xl">🍽</span>
+              <img src="/logo.png" alt="Chiniot Pakwan" className="w-8 h-8 object-contain" />
             </div>
             <div className="hidden sm:block">
               <p className="font-display text-base font-bold text-ivory leading-none">Chiniot Pakwan</p>
@@ -79,16 +79,16 @@ export default function MenuPage() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/" className="text-ivory/80 hover:text-gold transition text-sm font-medium">
-              ← Home
+              ? Home
             </Link>
             <Link href="/cart" className="relative text-ivory text-2xl hover:text-gold transition">
-              🛒
+              ??
             </Link>
             <a
               href={`tel:${PHONE_NUMBER}`}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-gradient text-emerald-deep text-xs font-bold tracking-wider uppercase shadow-gold hover:scale-105 transition"
             >
-              📞 Call Now
+              ?? Call Now
             </a>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function MenuPage() {
         <div className="absolute inset-0" style={{ background: "radial-gradient(circle at center, rgba(18, 59, 42, 0.4) 0%, rgba(9, 26, 20, 0.8) 100%)" }} />
         <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold to-transparent" />
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <p className="text-gold-bright tracking-[0.3em] text-sm uppercase mb-3 font-bold drop-shadow-lg">— Complete Menu —</p>
+          <p className="text-gold-bright tracking-[0.3em] text-sm uppercase mb-3 font-bold drop-shadow-lg">� Complete Menu �</p>
           <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
             Our <span className="text-gold-bright italic">Signature</span> Dishes
           </h1>
@@ -117,7 +117,7 @@ export default function MenuPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="🔍 Search dishes..."
+                placeholder="?? Search dishes..."
                 className="flex-1 px-4 py-3 rounded-xl border border-ivory-warm focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold bg-ivory transition"
               />
               <select
@@ -141,7 +141,7 @@ export default function MenuPage() {
                     : "bg-ivory text-charcoal-soft hover:bg-gold/20 border border-ivory-warm")
                 }
               >
-                <span>🍽</span>
+                <span>??</span>
                 <span>All Items</span>
               </button>
               {categories.map((cat) => (
@@ -155,7 +155,7 @@ export default function MenuPage() {
                       : "bg-ivory text-charcoal-soft hover:bg-gold/20 border border-ivory-warm")
                   }
                 >
-                  <span>{cat.icon || "🍴"}</span>
+                  <span>{cat.icon || "??"}</span>
                   <span>{cat.name}</span>
                 </button>
               ))}
@@ -180,7 +180,7 @@ export default function MenuPage() {
 
               {filteredItems.length === 0 ? (
                 <div className="text-center py-20">
-                  <div className="text-5xl mb-4">🍽️</div>
+                  <div className="text-5xl mb-4">???</div>
                   <p className="font-display text-2xl text-emerald-deep mb-2">No dishes found</p>
                   <p className="text-charcoal-soft text-sm">Try a different search or category</p>
                 </div>
@@ -209,7 +209,7 @@ export default function MenuPage() {
               href={`tel:${PHONE_NUMBER}`}
               className="px-8 py-4 rounded-xl bg-emerald-deep text-ivory font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center gap-2 justify-center"
             >
-              📞 Call Us
+              ?? Call Us
             </a>
             <a
               href="https://wa.me/923008008672"
@@ -217,14 +217,14 @@ export default function MenuPage() {
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-xl bg-white text-emerald-deep font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center gap-2 justify-center"
             >
-              💬 WhatsApp
+              ?? WhatsApp
             </a>
           </div>
         </div>
       </section>
 
       <footer className="bg-emerald-deep text-ivory py-10 px-6 text-center text-sm">
-        <p className="text-ivory/60">© 2026 Chiniot Pakwan. All rights reserved.</p>
+        <p className="text-ivory/60">� 2026 Chiniot Pakwan. All rights reserved.</p>
       </footer>
     </div>
   );
@@ -246,7 +246,7 @@ function ProductCard({ item, index }: { item: Product; index: number }) {
           />
           {item.popular && (
             <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-gold text-emerald-deep text-[10px] font-bold tracking-wider uppercase shadow-luxe z-10">
-              ★ Popular
+              ? Popular
             </span>
           )}
           <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition" />
@@ -291,7 +291,7 @@ function ProductCard({ item, index }: { item: Product; index: number }) {
             rel="noopener noreferrer"
             className="btn-whatsapp justify-center"
           >
-            💬 Order on WhatsApp
+            ?? Order on WhatsApp
           </a>
         </div>
       </div>

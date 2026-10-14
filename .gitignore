@@ -49,3 +49,7 @@ next-env.d.ts
 .env.local
 .env*.local
 .env.production.local
+
+*.bak
+
+*.backup

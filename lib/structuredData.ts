@@ -23,11 +23,6 @@ export function getLocalBusinessSchema() {
       "https://www.facebook.com/share/1LTqwqsDo8/",
     ],
     image: SITE_URL + "/og-image.jpg",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "127",
-    },
   };
 }
 

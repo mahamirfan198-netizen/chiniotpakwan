@@ -1,4 +1,4 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://chiniotpakwan.com";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://chiniotpakwan.pk";
 
 export const SITE_NAME = "Chiniot Pakwan";
 export const SITE_TAGLINE = "Authentic Pakistani Catering & Daig Service";

@@ -1,24 +1,20 @@
-import type { Metadata } from "next";
+﻿import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Complete Menu — Chicken, Beef, Mutton, Rice & Biryani",
+  title: "Complete Menu — Daig, Biryani, Korma & Catering Prices",
   description:
-    "Order authentic Pakistani daigs online — Chicken White Korma, Nihari, Mutton Kunna, Lahori Biryani, Kabuli Pulao, and more. Fresh daigs delivered across Lahore, Faisalabad, Karachi, and Islamabad.",
-  keywords: [
-    "daig menu Lahore",
-    "chicken white korma daig",
-    "mutton kunna price",
-    "biryani daig price",
-    "kabuli pulao daig",
-    "Pakistani catering menu",
-  ],
+    "Browse Chiniot Pakwan's full menu: mutton kunna, chicken white korma, nihari, biryani, kabuli pulao, and wedding daigs. Live prices, serving sizes, and easy WhatsApp ordering.",
+  alternates: {
+    canonical: "/menu",
+  },
   openGraph: {
-    title: "Complete Menu | Chiniot Pakwan",
-    description: "Order authentic Pakistani daigs online.",
-    type: "website",
+    title: "Chiniot Pakwan Menu — Authentic Chinioti Daig & Catering",
+    description:
+      "Full daig menu with live prices. Mutton kunna, chicken korma, biryani, and wedding catering.",
+    url: "/menu",
   },
 };
 
 export default function MenuLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return children;
 }

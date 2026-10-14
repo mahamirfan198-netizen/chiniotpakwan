@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
+﻿import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wedding & Event Catering — Daig Services Across Pakistan",
+  title: "Wedding & Event Catering in Lahore — Daig Packages & Prices",
   description:
-    "Complete Pakistani wedding catering, mehndi catering, walima, aqeeqah, and corporate event catering. Book daigs for 150-1000+ guests in Lahore, Faisalabad, Karachi, and Islamabad.",
-  keywords: [
-    "wedding catering Lahore",
-    "mehndi catering Lahore",
-    "walima catering",
-    "aqeeqah catering",
-    "nisar daig service",
-    "corporate catering Lahore",
-    "event catering Pakistan",
-  ],
+    "Full-service Pakistani catering in Lahore, Faisalabad, Karachi, and Islamabad. Wedding, mehndi, walima, aqeeqah, and corporate daig packages. Get a custom quote on WhatsApp.",
+  alternates: {
+    canonical: "/catering",
+  },
+  openGraph: {
+    title: "Chiniot Pakwan Catering — Wedding & Event Daig Service",
+    description:
+      "Authentic Chinioti catering for weddings, mehndi, walima, aqeeqah, and corporate events across Pakistan.",
+    url: "/catering",
+  },
 };
 
 export default function CateringLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return children;
 }

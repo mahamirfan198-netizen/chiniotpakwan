@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   --bg: 250 246 238;
@@ -351,3 +351,151 @@ button {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ============ FIDALGO-STYLE HERO ============ */
+.hero-arch-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px 9999px 16px 16px;
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-arch-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px -15px rgba(198, 161, 91, 0.5);
+}
+
+.hero-arch-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.hero-arch-card:hover img {
+  transform: scale(1.08);
+}
+
+.hero-arch-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(18, 59, 42, 0.85) 100%);
+  pointer-events: none;
+}
+
+.hero-arch-label {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  padding: 0 12px;
+}
+
+.hero-arch-label h3 {
+  font-family: 'Playfair Display', serif;
+  color: #FAF6EE;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.hero-arch-label p {
+  color: #E8C876;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ============ PREMIUM HERO ENHANCEMENTS ============ */
+.hero-bg-blur {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(40px) brightness(0.4) saturate(1.2);
+  transform: scale(1.1);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 30%, rgba(18, 59, 42, 0.55) 0%, rgba(9, 26, 20, 0.95) 100%);
+  pointer-events: none;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out forwards;
+}
+
+.hero-anim-delay-1 { animation-delay: 0.1s; }
+.hero-anim-delay-2 { animation-delay: 0.25s; }
+.hero-anim-delay-3 { animation-delay: 0.4s; }
+.hero-anim-delay-4 { animation-delay: 0.55s; }
+.hero-anim-delay-5 { animation-delay: 0.7s; }
+.hero-anim-delay-6 { animation-delay: 0.85s; }
+
+@keyframes goldShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-shimmer {
+  background: linear-gradient(
+    90deg,
+    #E8C876 0%,
+    #F5D77A 25%,
+    #FFFFFF 50%,
+    #F5D77A 75%,
+    #E8C876 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s ease-in-out infinite;
+}
+
+@keyframes archLift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.hero-arch-card {
+  animation: archLift 6s ease-in-out infinite;
+}
+
+.hero-arch-card:nth-child(1) { animation-delay: 0s; }
+.hero-arch-card:nth-child(2) { animation-delay: 0.4s; }
+.hero-arch-card:nth-child(3) { animation-delay: 0.8s; }
+.hero-arch-card:nth-child(4) { animation-delay: 1.2s; }

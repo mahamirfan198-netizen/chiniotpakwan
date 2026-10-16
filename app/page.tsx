@@ -2,6 +2,9 @@ export const dynamic = 'force-dynamic';
 import { getLocalBusinessSchema } from "@/lib/structuredData";
 import Script from "next/script";
 import { prisma } from "@/lib/db";
+import FadeIn from "@/components/animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
+import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
 
 export default async function Home() {

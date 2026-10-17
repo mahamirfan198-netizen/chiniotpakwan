@@ -1,3 +1,4 @@
+export const citySlug = (city: string) => city.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 // Canonical site URL. A *.vercel.app value is ignored so Google always sees the real domain.
 const DEFAULT_SITE_URL = "https://www.chiniotpakwan.pk";
 const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/["']/g, "").trim();

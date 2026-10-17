@@ -1,4 +1,5 @@
-﻿export function optimizeImage(url: string | null | undefined, width = 800): string {
+// Serves smaller, modern-format images from Cloudinary / Unsplash. Other URLs pass through untouched.
+export function optimizeImage(url: string | null | undefined, width = 800): string {
   if (!url) return "";
   try {
     if (url.includes("res.cloudinary.com") && url.includes("/upload/") && !url.includes("f_auto")) {
@@ -12,6 +13,8 @@
       u.searchParams.set("fit", "crop");
       return u.toString();
     }
-  } catch {}
+  } catch {
+    /* fall through */
+  }
   return url;
 }

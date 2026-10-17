@@ -6,6 +6,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useCart } from "@/lib/cart";
+import { optimizeImage } from "@/lib/img";
 
 type Product = {
   id: string;
@@ -134,7 +135,7 @@ function ProductDetailContent() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="relative">
             <div className="aspect-square rounded-3xl overflow-hidden bg-black shadow-luxe">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+              <img src={optimizeImage(product.image, 900)} fetchPriority="high" alt={product.name} className="w-full h-full object-cover" />
             </div>
             {product.popular && (
               <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-gold-gradient text-emerald-deep text-xs font-bold uppercase shadow-luxe">

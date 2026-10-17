@@ -14,6 +14,12 @@ export async function GET() {
     { url: baseUrl + "/catering", lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: baseUrl + "/locations", lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: baseUrl + "/contact", lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: baseUrl + "/catering/lahore", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: baseUrl + "/catering/faisalabad", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: baseUrl + "/catering/karachi", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: baseUrl + "/catering/islamabad", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: baseUrl + "/privacy", lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: baseUrl + "/terms", lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   let productRoutes: { url: string; lastModified: Date; changeFrequency: string; priority: number }[] = [];

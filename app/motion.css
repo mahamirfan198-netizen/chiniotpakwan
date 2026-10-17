@@ -1,12 +1,17 @@
-﻿/* Chiniot Pakwan - motion layer. All movement is disabled for reduced motion. */
+/* Chiniot Pakwan – motion layer (3D). Loaded after globals.css. Everything here is off for visitors who prefer reduced motion. */
+
 html { scroll-behavior: smooth; }
 :focus-visible { outline: 2px solid #c6a15b; outline-offset: 3px; border-radius: 6px; }
 
-@keyframes moHeroIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes moHeroIn {
+  from { opacity: 0; transform: perspective(900px) translate3d(0, 30px, -80px) rotateX(10deg); }
+  to   { opacity: 1; transform: perspective(900px) translate3d(0, 0, 0) rotateX(0); }
+}
 @keyframes moKenBurns { from { transform: scale(1.14); } to { transform: scale(1); } }
-@keyframes moSheen { from { background-position: 120% 0; } to { background-position: -20% 0; } }
+@keyframes moSheen    { from { background-position: 120% 0; } to { background-position: -20% 0; } }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* 1. Hero entrance, children arrive in sequence out of depth */
   .mo-hero-stack > * { animation: moHeroIn 1s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
   .mo-hero-stack > *:nth-child(1) { animation-delay: 0.10s; }
   .mo-hero-stack > *:nth-child(2) { animation-delay: 0.25s; }
@@ -16,12 +21,52 @@ html { scroll-behavior: smooth; }
   .mo-hero-stack > *:nth-child(6) { animation-delay: 0.90s; }
   .mo-hero-stack > *:nth-child(n+7) { animation-delay: 1.05s; }
   .mo-kenburns { animation: moKenBurns 14s ease-out both; }
-  html [data-mo="pre"] { opacity: 0; transform: perspective(1100px) translate3d(0, 44px, -80px) rotateX(18deg) rotateY(var(--mo-ry, 0deg)) scale(0.96); transform-origin: 50% 100%; transition: none; }
-  html [data-mo="in"] { opacity: 1; transform: perspective(1100px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1); transform-origin: 50% 100%; transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--mo-delay, 0ms), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--mo-delay, 0ms); }
-  .mo-hero-stack { will-change: translate, rotate, opacity; transform-origin: 50% 100%; }
-  .mo-kenburns { will-change: translate, scale; }
-  .mo-scene { perspective: 1100px; }
-  .mo-tilt { will-change: rotate; }
-  .btn-gold:active, a[class*="hover:scale-105"]:active, button[class*="hover:scale-105"]:active { transform: scale(0.97); }
-  .btn-gold:hover { background-image: linear-gradient(110deg, #c6a15b 0%, #e8c876 45%, #f6e2a8 50%, #e8c876 55%, #c6a15b 100%); background-size: 250% 100%; animation: moSheen 0.9s ease-out; }
+
+  /* 2. Hero scroll depth: photo drifts slower and grows, text recedes into the screen.
+        --hs (0 to 1) is set by components/MotionProvider.tsx while you scroll past the hero. */
+  .mo-hero-section { perspective: 1200px; }
+  .mo-hero-section .mo-kenburns {
+    translate: 0 calc(var(--hs, 0) * 140px);
+    scale: calc(1 + var(--hs, 0) * 0.15);
+  }
+  .mo-hero-section .mo-hero-stack {
+    transform: translate3d(0, calc(var(--hs, 0) * -50px), calc(var(--hs, 0) * -220px)) rotateX(calc(var(--hs, 0) * 9deg));
+    opacity: max(0, calc(1 - var(--hs, 0) * 1.15));
+    will-change: transform, opacity;
+  }
+
+  /* 3. 3D scroll reveal: cards tip up out of the page, alternating slightly left and right.
+        "html [data-mo]" is more specific than .luxe-card, so the card's own transition is only paused while revealing. */
+  html [data-mo="pre"] {
+    opacity: 0;
+    transform: perspective(900px) translate3d(0, 46px, -90px) rotateX(18deg) rotateY(var(--mo-ry, 0deg)) scale(0.96);
+    transform-origin: 50% 100%;
+    transition: none;
+  }
+  html [data-mo="in"] {
+    opacity: 1;
+    transform: perspective(900px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
+    transform-origin: 50% 100%;
+    transition:
+      opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--mo-delay, 0ms),
+      transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--mo-delay, 0ms);
+  }
+
+  /* 4. Press feedback + gold sheen on buttons */
+  .btn-gold:active,
+  a[class*="hover:scale-105"]:active,
+  button[class*="hover:scale-105"]:active { transform: scale(0.97); }
+  .btn-gold:hover {
+    background-image: linear-gradient(110deg, #c6a15b 0%, #e8c876 45%, #f6e2a8 50%, #e8c876 55%, #c6a15b 100%);
+    background-size: 250% 100%;
+    animation: moSheen 0.9s ease-out;
+  }
+}
+
+/* 5. Cards tilt toward the mouse (desktop only) */
+@media (prefers-reduced-motion: no-preference) and (pointer: fine) {
+  html .luxe-card[data-tilt] {
+    transform: perspective(900px) translateY(-6px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 0.12s ease-out, box-shadow 0.35s, border-color 0.35s;
+  }
 }

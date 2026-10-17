@@ -1,11 +1,11 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import ContactForm from "./ContactForm";
 import { CONTACT, LOCATIONS } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact Chiniot Pakwan — Daig Orders & Catering Inquiries",
+  title: "Contact Us: Daig Orders & Catering",
   description:
-    "Call, WhatsApp, or message us to place a daig order or book catering in Lahore, Faisalabad, Karachi, or Islamabad. Fast response for weddings and events.",
+    "Call or WhatsApp Chiniot Pakwan on 0300 8008672 to order daig or book wedding catering in Lahore, Faisalabad, Karachi or Islamabad.",
   alternates: {
     canonical: "/contact",
   },

@@ -1,6 +1,10 @@
-import { getCurrentAdmin } from "@/lib/adminAuth";
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "Admin",
+  robots: { index: false, follow: false },
+};
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

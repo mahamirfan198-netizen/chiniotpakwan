@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
+export const metadata = { alternates: { canonical: "/" } };
 import { getLocalBusinessSchema } from "@/lib/structuredData";
 import Script from "next/script";
 import { prisma } from "@/lib/db";
-import FadeIn from "@/components/animations/FadeIn";
-import StaggerContainer, { StaggerItem } from "@/components/animations/StaggerContainer";
-import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
+import { optimizeImage } from "@/lib/img";
+import CityLinks from "@/components/CityLinks";
 
 export default async function Home() {
 
@@ -80,7 +80,7 @@ export default async function Home() {
       {/* ============ CINEMATIC HERO ============ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 mo-kenburns"
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1633945274309-2c16c9682a8c?w=1920')",
@@ -99,7 +99,7 @@ export default async function Home() {
         <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold to-transparent z-20" />
 
         {/* Hero Content */}
-        <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
+        <div className="relative z-20 max-w-4xl mx-auto px-6 text-center mo-hero-stack">
           <p className="text-gold-bright tracking-[0.35em] text-sm uppercase mb-6 font-bold drop-shadow-lg">
             — Great Pakistani Cuisine —
           </p>
@@ -244,7 +244,7 @@ export default async function Home() {
           <div className="order-1 lg:order-2 relative">
             <div className="aspect-square rounded-3xl overflow-hidden border-4 border-gold/40 shadow-luxe">
               <img
-                src={kunna?.image || "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800"}
+                src={optimizeImage(kunna?.image || "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800", 800)}
                 alt="Mutton Kunna"
                 className="w-full h-full object-cover hover:scale-105 transition duration-700"
               />
@@ -285,8 +285,8 @@ export default async function Home() {
               >
                 <div className="relative aspect-square overflow-hidden">
                   <img
-                    src={item.image}
-                    alt={item.name}
+                    src={optimizeImage(item.image, 600)}
+                    alt={item.name} loading="lazy" decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                   />
                   {item.popular && (
@@ -374,6 +374,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <CityLinks />
 
       {/* ============ FOOTER ============ */}
       <footer className="bg-emerald-deep text-ivory py-16 px-6">

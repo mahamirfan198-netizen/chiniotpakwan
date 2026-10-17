@@ -1,16 +1,13 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Complete Menu — Daig, Biryani, Korma & Catering Prices",
+  title: "Menu & Prices: Daig, Biryani, Korma, Nihari",
   description:
-    "Browse Chiniot Pakwan's full menu: mutton kunna, chicken white korma, nihari, biryani, kabuli pulao, and wedding daigs. Live prices, serving sizes, and easy WhatsApp ordering.",
-  alternates: {
-    canonical: "/menu",
-  },
+    "Chiniot Pakwan menu & prices: mutton kunna, chicken white korma, nihari, biryani, kabuli pulao and wedding daigs. Check daig prices and order on WhatsApp.",
+  alternates: { canonical: "/menu" },
   openGraph: {
-    title: "Chiniot Pakwan Menu — Authentic Chinioti Daig & Catering",
-    description:
-      "Full daig menu with live prices. Mutton kunna, chicken korma, biryani, and wedding catering.",
+    title: "Chiniot Pakwan Menu: Authentic Chinioti Daig & Catering Prices",
+    description: "Full daig menu with prices. Mutton kunna, chicken korma, biryani and wedding catering.",
     url: "/menu",
   },
 };

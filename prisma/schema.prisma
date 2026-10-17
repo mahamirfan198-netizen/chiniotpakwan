@@ -1,3 +1,6 @@
+// REBUILT from how the code uses the database. If your real project has prisma/schema.prisma, use that file instead,
+// or run `npx prisma db pull` to regenerate this one from your live database. Never run `prisma db push` with this file.
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,19 +14,18 @@ model Admin {
   id           String   @id @default(cuid())
   email        String   @unique
   passwordHash String
-  name         String?
+  name         String
   createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
 }
 
 model Category {
   id        String    @id @default(cuid())
-  name      String    @unique
+  name      String
   slug      String    @unique
   icon      String?
   order     Int       @default(0)
-  createdAt DateTime  @default(now())
   products  Product[]
+  createdAt DateTime  @default(now())
 }
 
 model Product {
@@ -39,22 +41,39 @@ model Product {
   popular     Boolean  @default(false)
   available   Boolean  @default(true)
   categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-
-  @@index([categoryId])
-  @@index([available])
 }
 
-model ContactMessage {
-  id        String   @id @default(cuid())
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  customerName  String
+  customerPhone String
+  customerEmail String?
+  address       String
+  city          String?
+  totalAmount   Int
+  paymentMethod String      @default("COD")
+  transactionId String?
+  paymentStatus String      @default("PENDING")
+  status        String      @default("NEW")
+  notes         String?
+  items         OrderItem[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
   name      String
-  phone     String
-  email     String?
-  message   String
-  read      Boolean  @default(false)
-  createdAt DateTime @default(now())
+  price     Int
+  quantity  Int
+  image     String?
 }
 
 model CateringEnquiry {
@@ -73,50 +92,12 @@ model CateringEnquiry {
   createdAt     DateTime  @default(now())
 }
 
-model SiteSetting {
-  id    String @id @default(cuid())
-  key   String @unique
-  value String
-}
-
-model Order {
-  id            String      @id @default(cuid())
-  orderNumber   String      @unique
-  customerName  String
-  customerPhone String
-  customerEmail String?
-  address       String
-  city          String?
-  totalAmount   Int
-  paymentMethod String      @default("COD")
-  transactionId String?
-  paymentStatus String      @default("PENDING")
-  status        String      @default("NEW")
-  notes         String?
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  items         OrderItem[]
-
-  @@index([customerPhone])
-  @@index([createdAt])
-}
-
-model OrderItem {
+model ContactMessage {
   id        String   @id @default(cuid())
-  orderId   String
-  productId String?
   name      String
-  price     Int
-  quantity  Int
-  image     String?
+  phone     String
+  email     String?
+  message   String
+  read      Boolean  @default(false)
   createdAt DateTime @default(now())
-  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-
-  @@index([orderId])
-}
-
-model playing_with_neon {
-  id    Int    @id @default(autoincrement())
-  name  String
-  value Float? @db.Real
 }

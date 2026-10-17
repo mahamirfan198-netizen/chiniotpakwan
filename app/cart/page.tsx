@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCart } from "@/lib/cart";
+import { optimizeImage } from "@/lib/img";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems } = useCart();
@@ -40,7 +41,7 @@ export default function CartPage() {
         <div className="space-y-4 mb-8">
           {items.map((item) => (
             <div key={item.id} className="luxe-card p-4 flex items-center gap-4">
-              <img src={item.image} alt={item.name} className="w-20 h-20 rounded-xl object-cover" />
+              <img src={optimizeImage(item.image, 200)} loading="lazy" alt={item.name} className="w-20 h-20 rounded-xl object-cover" />
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-emerald-deep truncate">{item.name}</p>
                 <p className="text-sm text-charcoal-soft">Rs. {item.price.toLocaleString()} each</p>

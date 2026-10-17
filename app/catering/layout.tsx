@@ -1,16 +1,13 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wedding & Event Catering in Lahore — Daig Packages & Prices",
+  title: "Wedding Catering & Daig Service in Lahore",
   description:
-    "Full-service Pakistani catering in Lahore, Faisalabad, Karachi, and Islamabad. Wedding, mehndi, walima, aqeeqah, and corporate daig packages. Get a custom quote on WhatsApp.",
-  alternates: {
-    canonical: "/catering",
-  },
+    "Wedding, mehndi, walima, aqeeqah & corporate catering in Lahore, Faisalabad, Karachi and Islamabad. Authentic Chinioti daig packages. Get a quote on WhatsApp.",
+  alternates: { canonical: "/catering" },
   openGraph: {
-    title: "Chiniot Pakwan Catering — Wedding & Event Daig Service",
-    description:
-      "Authentic Chinioti catering for weddings, mehndi, walima, aqeeqah, and corporate events across Pakistan.",
+    title: "Chiniot Pakwan Catering: Wedding & Event Daig Service",
+    description: "Authentic Chinioti catering for weddings, mehndi, walima, aqeeqah and corporate events across Pakistan.",
     url: "/catering",
   },
 };

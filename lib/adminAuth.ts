@@ -1,4 +1,4 @@
-﻿import { cookies } from "next/headers";
+import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 
 const SECRET = new TextEncoder().encode(

@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { destroyAdminSession } from "@/lib/adminAuth";
 
 export async function POST() {

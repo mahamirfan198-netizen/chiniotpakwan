@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { formatPrice, getWhatsAppLink, PHONE_NUMBER } from "@/data/menu";
+import { optimizeImage } from "@/lib/img";
 
 type Product = {
   id: string;
@@ -239,7 +240,7 @@ function ProductCard({ item, index }: { item: Product; index: number }) {
       <Link href={"/menu/" + item.id} className="block">
         <div className="relative aspect-4/3 bg-ivory-warm overflow-hidden">
           <img
-            src={item.image}
+            src={optimizeImage(item.image, 500)}
             alt={item.name}
             className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
             loading="lazy"

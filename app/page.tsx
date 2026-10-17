@@ -65,7 +65,7 @@ export default async function Home() {
 
           <div className="flex items-center gap-3">
             <Link href="/cart" className="text-white text-2xl relative hover:text-gold-bright transition">
-              🛒
+              ðŸ›’
             </Link>
             <Link
               href="/menu"
@@ -101,7 +101,7 @@ export default async function Home() {
         {/* Hero Content */}
         <div className="relative z-20 max-w-4xl mx-auto px-6 text-center mo-hero-stack">
           <p className="text-gold-bright tracking-[0.35em] text-sm uppercase mb-6 font-bold drop-shadow-lg">
-            — Great Pakistani Cuisine —
+            â€” Great Pakistani Cuisine â€”
           </p>
 
           <p className="font-display italic text-2xl md:text-3xl text-gold-bright mb-4 drop-shadow-md">
@@ -116,12 +116,12 @@ export default async function Home() {
 
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="w-20 h-0.5 bg-gold-bright" />
-            <span className="text-gold-bright text-lg">✦</span>
+            <span className="text-gold-bright text-lg">âœ¦</span>
             <div className="w-20 h-0.5 bg-gold-bright" />
           </div>
 
           <p className="text-white text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-lg">
-            From family gatherings to grand celebrations — discover authentic
+            From family gatherings to grand celebrations â€” discover authentic
             Pakistani daigs, freshly prepared mutton kunna, and premium
             catering crafted for your special occasions.
           </p>
@@ -131,7 +131,7 @@ export default async function Home() {
               href="/menu"
               className="px-8 py-4 rounded-full bg-gold-gradient text-emerald-deep font-bold tracking-wider uppercase text-sm shadow-gold hover:scale-105 transition inline-flex items-center gap-2"
             >
-              Explore Our Menu <span>→</span>
+              Explore Our Menu <span>â†’</span>
             </Link>
             <Link
               href="/catering"
@@ -165,7 +165,7 @@ export default async function Home() {
               authentic Pakistani daigs, traditional biryani, aromatic rice
               dishes, and our signature mutton kunna. Every dish is cooked with
               premium ingredients and traditional recipes passed down through
-              generations — perfect for weddings, family gatherings, corporate
+              generations â€” perfect for weddings, family gatherings, corporate
               events, and religious occasions.
             </p>
           </div>
@@ -177,19 +177,19 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              icon: "🍲",
+              icon: "ðŸ²",
               title: "Signature Dishes",
               desc: "Authentic Chinioti recipes with premium ingredients.",
               href: "/menu",
             },
             {
-              icon: "🍛",
+              icon: "ðŸ›",
               title: "Daig Service",
               desc: "Freshly prepared daigs for every occasion and guest count.",
               href: "/menu",
             },
             {
-              icon: "💍",
+              icon: "ðŸ’",
               title: "Wedding Catering",
               desc: "Complete catering solutions for weddings and events.",
               href: "/catering",
@@ -220,7 +220,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="order-2 lg:order-1">
             <p className="text-gold-bright tracking-[0.3em] text-sm uppercase mb-4 font-bold drop-shadow-lg">
-              — Our Signature —
+              â€” Our Signature â€”
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
               Mutton <span className="text-gold-bright italic">Kunna</span>
@@ -230,14 +230,14 @@ export default async function Home() {
             <p className="text-white/95 leading-relaxed mb-8 text-lg drop-shadow-md">
               Slow-cooked in traditional clay pots for hours, our mutton kunna
               is a centuries-old Chinioti recipe. Tender mutton, aromatic
-              spices, and a rich, silky gravy — the perfect centerpiece for
+              spices, and a rich, silky gravy â€” the perfect centerpiece for
               your most special occasions.
             </p>
             <Link
               href="/menu"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold-gradient text-emerald-deep font-bold tracking-wider uppercase text-sm shadow-gold hover:scale-105 transition"
             >
-              Order Kunna <span>→</span>
+              Order Kunna <span>â†’</span>
             </Link>
           </div>
 
@@ -251,7 +251,7 @@ export default async function Home() {
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-gold-gradient flex items-center justify-center shadow-luxe rotate-12">
               <div className="text-center text-emerald-deep">
-                <p className="text-2xl font-bold">★</p>
+                <p className="text-2xl font-bold">â˜…</p>
                 <p className="text-[10px] font-bold tracking-widest uppercase">
                   Best in
                   <br />
@@ -268,7 +268,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-gold tracking-[0.3em] text-sm uppercase mb-4 font-bold">
-              — Explore Our Menu —
+              â€” Explore Our Menu â€”
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-emerald-deep mb-4">
               Signature Pakistani Dishes
@@ -307,7 +307,7 @@ export default async function Home() {
 
           <div className="text-center mt-12">
             <Link href="/menu" className="btn-emerald inline-flex items-center gap-2">
-              View Complete Menu →
+              View Complete Menu â†’
             </Link>
           </div>
         </div>
@@ -317,7 +317,7 @@ export default async function Home() {
       <section className="py-20 px-6 bg-ivory-warm">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gold tracking-[0.3em] text-sm uppercase mb-4 font-bold">
-            — Visit Us —
+            â€” Visit Us â€”
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-emerald-deep mb-4">
             Our Locations Across Pakistan
@@ -334,13 +334,13 @@ export default async function Home() {
                 href="/locations"
                 className="px-5 py-2.5 rounded-full bg-white border-2 border-gold/40 text-emerald-deep font-bold text-sm hover:bg-gold/20 transition shadow-soft"
               >
-                📍 {city}
+                ðŸ“ {city}
               </Link>
             ))}
           </div>
 
           <Link href="/locations" className="btn-gold inline-block">
-            View All Locations →
+            View All Locations â†’
           </Link>
         </div>
       </section>
@@ -360,7 +360,7 @@ export default async function Home() {
               className="px-8 py-4 rounded-full font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center justify-center gap-2"
               style={{ background: "#0B2620", color: "#FAF6EE" }}
             >
-              📞 Call Now
+              ðŸ“ž Call Now
             </a>
             <a
               href="https://wa.me/923008008672"
@@ -369,7 +369,7 @@ export default async function Home() {
               className="px-8 py-4 rounded-full bg-white font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center justify-center gap-2"
               style={{ color: "#0B2620" }}
             >
-              💬 WhatsApp Order
+              ðŸ’¬ WhatsApp Order
             </a>
           </div>
         </div>
@@ -384,7 +384,7 @@ export default async function Home() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center">
-                  <span className="text-2xl">🍛</span>
+                  <span className="text-2xl">ðŸ›</span>
                 </div>
                 <div>
                   <p className="font-display text-lg font-bold text-white">Chiniot Pakwan</p>
@@ -403,7 +403,7 @@ export default async function Home() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-bold transition hover:opacity-90"
                 style={{ background: "#1877F2" }}
               >
-                📘 Follow on Facebook
+                ðŸ“˜ Follow on Facebook
               </a>
             </div>
 
@@ -445,7 +445,7 @@ export default async function Home() {
                     href="tel:03008008672"
                     className="text-white/80 hover:text-gold-bright transition flex items-center gap-2"
                   >
-                    📞 0300 8008672
+                    ðŸ“ž 0300 8008672
                   </a>
                 </li>
                 <li>
@@ -453,18 +453,18 @@ export default async function Home() {
                     href="mailto:support@chiniotpakwan.pk"
                     className="text-white/80 hover:text-gold-bright transition flex items-center gap-2 break-all"
                   >
-                    ✉️ support@chiniotpakwan.pk
+                    âœ‰ï¸ support@chiniotpakwan.pk
                   </a>
                 </li>
                 <li className="text-white/80">
-                  📍 Lahore · Faisalabad · Karachi · Islamabad
+                  ðŸ“ Lahore Â· Faisalabad Â· Karachi Â· Islamabad
                 </li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
-            <p>© 2026 Chiniot Pakwan. All rights reserved.</p>
+            <p>Â© 2026 Chiniot Pakwan. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-gold-bright transition">
                 Privacy Policy

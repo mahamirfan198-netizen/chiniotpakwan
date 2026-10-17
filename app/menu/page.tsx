@@ -79,17 +79,17 @@ export default function MenuPage() {
             </div>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/" className="text-ivory/80 hover:text-gold transition text-sm font-medium">
+            <Link href="/" className="text-gold-bright hover:text-white transition text-sm font-bold">
               ? Home
             </Link>
             <Link href="/cart" className="relative text-ivory text-2xl hover:text-gold transition">
-              ??
+              🛒
             </Link>
             <a
               href={`tel:${PHONE_NUMBER}`}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-gradient text-emerald-deep text-xs font-bold tracking-wider uppercase shadow-gold hover:scale-105 transition"
             >
-              ?? Call Now
+              🛒 Call Now
             </a>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function MenuPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="?? Search dishes..."
+                placeholder="🛒 Search dishes..."
                 className="flex-1 px-4 py-3 rounded-xl border border-ivory-warm focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold bg-ivory transition"
               />
               <select
@@ -142,7 +142,7 @@ export default function MenuPage() {
                     : "bg-ivory text-charcoal-soft hover:bg-gold/20 border border-ivory-warm")
                 }
               >
-                <span>??</span>
+                <span>🛒</span>
                 <span>All Items</span>
               </button>
               {categories.map((cat) => (
@@ -156,7 +156,7 @@ export default function MenuPage() {
                       : "bg-ivory text-charcoal-soft hover:bg-gold/20 border border-ivory-warm")
                   }
                 >
-                  <span>{cat.icon || "??"}</span>
+                  <span>{cat.icon || "🛒"}</span>
                   <span>{cat.name}</span>
                 </button>
               ))}
@@ -181,7 +181,7 @@ export default function MenuPage() {
 
               {filteredItems.length === 0 ? (
                 <div className="text-center py-20">
-                  <div className="text-5xl mb-4">???</div>
+                  <div className="text-5xl mb-4">🛒?</div>
                   <p className="font-display text-2xl text-emerald-deep mb-2">No dishes found</p>
                   <p className="text-charcoal-soft text-sm">Try a different search or category</p>
                 </div>
@@ -210,7 +210,7 @@ export default function MenuPage() {
               href={`tel:${PHONE_NUMBER}`}
               className="px-8 py-4 rounded-xl bg-emerald-deep text-ivory font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center gap-2 justify-center"
             >
-              ?? Call Us
+              🛒 Call Us
             </a>
             <a
               href="https://wa.me/923008008672"
@@ -218,7 +218,7 @@ export default function MenuPage() {
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-xl bg-white text-emerald-deep font-bold tracking-wider uppercase text-sm shadow-luxe hover:scale-105 transition inline-flex items-center gap-2 justify-center"
             >
-              ?? WhatsApp
+              🛒 WhatsApp
             </a>
           </div>
         </div>
@@ -292,7 +292,7 @@ function ProductCard({ item, index }: { item: Product; index: number }) {
             rel="noopener noreferrer"
             className="btn-whatsapp justify-center"
           >
-            ?? Order on WhatsApp
+            🛒 Order on WhatsApp
           </a>
         </div>
       </div>

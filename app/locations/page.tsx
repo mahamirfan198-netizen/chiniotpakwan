@@ -17,10 +17,10 @@ export default function LocationsPage() {
             </span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/" className="text-ivory/80 hover:text-gold transition text-sm font-medium">
+            <Link href="/" className="text-gold-bright hover:text-white transition text-sm font-bold">
               ← Home
             </Link>
-            <Link href="/menu" className="text-ivory/80 hover:text-gold transition text-sm font-medium">
+            <Link href="/menu" className="text-gold-bright hover:text-white transition text-sm font-bold">
               Menu
             </Link>
           </div>

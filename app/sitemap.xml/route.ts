@@ -1,43 +1,29 @@
-import { NextResponse } from "next/server";
-import { SITE_URL } from "@/lib/seo";
+﻿import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const baseUrl = SITE_URL;
+  const baseUrl = "https://chiniotpakwan.pk";
   const now = new Date();
 
   const staticRoutes = [
-    { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: baseUrl + "/menu", lastModified: now, changeFrequency: "daily", priority: 0.95 },
-    { url: baseUrl + "/catering", lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: baseUrl + "/locations", lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: baseUrl + "/contact", lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: baseUrl + "/catering/lahore", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: baseUrl + "/catering/faisalabad", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: baseUrl + "/catering/karachi", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: baseUrl + "/catering/islamabad", lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: baseUrl + "/privacy", lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: baseUrl + "/terms", lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-  ];
+    "", "/menu", "/catering", "/locations", "/contact", "/terms", "/privacy",
+    "/daig-service/lahore", "/daig-service/islamabad", "/daig-service/karachi", "/daig-service/faisalabad"
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: route === "" ? 1.0 : 0.8,
+  }));
 
-  let productRoutes: { url: string; lastModified: Date; changeFrequency: string; priority: number }[] = [];
-  try {
-    const products = await prisma.product.findMany({
-      where: { available: true },
-      select: { id: true, updatedAt: true },
-      orderBy: { createdAt: "desc" },
-    });
-    productRoutes = products.map((p) => ({
-      url: baseUrl + "/menu/" + p.id,
-      lastModified: p.updatedAt,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    }));
-  } catch (error) {
-    console.error("Sitemap: failed to fetch products", error);
-  }
+  const products = await prisma.product.findMany({ where: { available: true }, select: { id: true, updatedAt: true } });
+  const productRoutes = products.map((p) => ({
+    url: `${baseUrl}/menu/${p.id}`,
+    lastModified: p.updatedAt,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
 
   const allRoutes = [...staticRoutes, ...productRoutes];
 
@@ -51,10 +37,5 @@ ${allRoutes.map((route) => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-  return new NextResponse(xml, {
-    headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-    },
-  });
+  return new NextResponse(xml, { headers: { "Content-Type": "application/xml" } });
 }

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./motion.css";
-import { CartProvider } from "@/lib/cart";
+import { CartProvider } from "@/lib/cart";`nimport StructuredData from "@/components/StructuredData";
 import MotionProvider from "@/components/MotionProvider";
 import { SITE_URL, SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "@/lib/seo";
 
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.region" content="PK-PB" />
         <meta name="geo.placename" content="Lahore" />
       </head>
-      <body>
+      <body>`n        <StructuredData />
         <CartProvider>{children}</CartProvider>
         <MotionProvider />
       </body>

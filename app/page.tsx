@@ -137,7 +137,7 @@ export default async function Home() {
             </h2>
             <div className="w-24 h-0.5 bg-gold mx-auto mb-6" />
             <p className="text-charcoal-soft text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
-              We are Lahore's trusted catering service, serving fresh and authentic Pakistani daigs, traditional biryani, aromatic rice dishes, and our signature mutton kunna. Every dish is cooked with premium ingredients and traditional recipes passed down through generations.
+              We are Lahore's trusted catering service for <strong>traditional Chinioti food</strong>. From the famous <strong>Chiniot mutton kunna</strong> to aromatic Kabuli pulao and Sindhi biryani, we serve fresh and authentic Pakistani daigs. Whether you need <strong>daig service in Lahore</strong> for a wedding, or a <strong>family daig booking</strong> in Johar Town or DHA, every dish is cooked with premium ingredients and traditional Chinioti cuisine recipes passed down through generations.
             </p>
           </div>
         </div>

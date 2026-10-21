@@ -1,14 +1,13 @@
-export const citySlug = (city: string) => city.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-// Canonical site URL. A *.vercel.app value is ignored so Google always sees the real domain.
-const DEFAULT_SITE_URL = "https://www.chiniotpakwan.pk";
+// Canonical site URL.
+const DEFAULT_SITE_URL = "https://chiniotpakwan.pk";
 const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/["']/g, "").trim();
 
 export const SITE_URL = (envUrl && !envUrl.includes("vercel.app") ? envUrl : DEFAULT_SITE_URL).replace(/\/+$/, "");
 
 export const SITE_NAME = "Chiniot Pakwan";
-export const SITE_TAGLINE = "Daig & Wedding Catering in Lahore";
+export const SITE_TAGLINE = "Authentic Pakistani Catering & Daig Service";
 export const SITE_DESCRIPTION =
-  "Order authentic Chinioti daig, mutton kunna, chicken korma & biryani online. Wedding, mehndi & walima catering in Lahore, Faisalabad, Karachi and Islamabad.";
+  "Explore Chiniot Pakwan for traditional Chinioti food, mutton kunna, biryani, pulao and catering services. View our menu, prices and ordering information.";
 export const OG_IMAGE = "/og-image.jpg";
 
 export const CONTACT = {
@@ -25,41 +24,27 @@ export const LOCATIONS = [
   { city: "Islamabad", region: "Islamabad Capital Territory", mapsUrl: "https://share.google/YIDWLWKSEAjdOohE5" },
 ];
 
+// Weaving in your new keyword list here
 export const KEYWORDS = [
-  "Chiniot Pakwan",
-  "Chiniot Pakwan Lahore",
-  "Chiniot Pakwan menu",
-  "Chiniot Pakwan price list",
-  "daig service Lahore",
-  "daig service Faisalabad",
-  "daig service Karachi",
-  "daig service Islamabad",
-  "daig price Lahore",
-  "online daig order Pakistan",
-  "family daig order",
-  "Pakistani catering Lahore",
-  "wedding catering Lahore",
-  "wedding catering Karachi",
-  "wedding catering Faisalabad",
-  "wedding catering Islamabad",
-  "mehndi catering",
-  "walima catering",
-  "aqeeqah catering",
-  "corporate catering Lahore",
-  "halal catering Pakistan",
-  "mutton kunna Lahore",
-  "chicken white korma daig",
-  "chicken badami korma daig",
-  "chicken makhani qorma",
-  "chicken nihari daig",
-  "biryani daig Lahore",
-  "kabuli pulao daig",
-  "mutton palak",
-  "Chinioti cuisine",
-  "Chinioti food",
-  "nisar daig Lahore",
+  // Brand
+  "Chiniot Pakwan", "Chiniot World Pakwan", "Chiniot Pakwan official website", "Chiniot Pakwan menu", 
+  "Chiniot Pakwan prices", "Chiniot Pakwan contact number", "Chiniot Pakwan location", "Chiniot Pakwan online order", 
+  "Chiniot Pakwan delivery", "Chiniot Pakwan reviews",
+  // Food
+  "Chinioti food", "Chinioti cuisine", "traditional Chinioti food", "Chinioti mutton kunna", "Chiniot kunna", 
+  "best Chinioti kunna", "Chiniot traditional food", "famous food of Chiniot", "Chinioti mutton dishes", "Chiniot food specialties",
+  // Catering
+  "daig service", "daig service in Lahore", "Pakistani catering services", "event catering in Lahore", "wedding catering", 
+  "family daig booking", "daig prices in Lahore", "food catering for events", "bulk food orders", "mutton kunna daig", 
+  "biryani daig", "chicken qorma daig", "corporate catering", "wedding food arrangements", "Pakwan center",
+  // Menu
+  "chicken biryani daig", "beef biryani daig", "Sindhi biryani", "chana pulao", "yakhni pulao", "Kabuli pulao", 
+  "chicken white korma", "chicken korma daig", "mutton kunna", "palak gosht", "mutton karahi", "chicken handi", 
+  "mutanjan", "traditional Pakistani desserts", "Pakistani food menu and prices",
+  // Locations
+  "daig service Johar Town", "catering Johar Town", "daig delivery Raiwind Road", "catering Raiwind Road", 
+  "wedding catering DHA Lahore", "daig service DHA", "Chinioti food catering Faisalabad", "Chinioti cuisine Pakistan"
 ];
 
-export function getBaseUrl() {
-  return SITE_URL;
-}
+export const citySlug = (city: string) => city.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+export function getBaseUrl() { return SITE_URL; }

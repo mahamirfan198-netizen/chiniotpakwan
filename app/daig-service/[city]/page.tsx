@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   if (!loc) return { title: "Page not found", robots: { index: false, follow: false } };
 
   const path = "/daig-service/" + citySlug(loc.city);
-  const title = "Daig Service & Catering in " + loc.city;
-  const description = "Order Chiniot Pakwan daig and wedding catering in " + loc.city + ". Mutton kunna, korma, nihari and biryani, confirmed by phone or WhatsApp.";
+  const title = "Daig Service in " + loc.city + " | Chiniot Pakwan";
+  const description = "Looking for daig catering in " + loc.city + "? Explore available biryani, pulao, qorma and mutton kunna options, serving sizes, prices and booking details.";
 
   return {
     title,
